@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RACI | HCA Healthcare transformation roadmap</title>
+<meta name="description" content="A governance RACI for seven recurring decisions created by the HCA Healthcare transformation roadmap, with one accountable role for each.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff; --wash: #eaf2f0; --ink: #14262b; --muted: #51656a;
+    --scrub: #1b6b60; --scrub-deep: #124a43; --blue: #2f6da3; --blue-deep: #1f4e7a; --rule: #cfdcd9;
+    --measure: 66ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-size: 1.0625rem; line-height: 1.55; }
+  a { color: var(--scrub); text-underline-offset: 0.18em; }
+  a:hover { color: var(--scrub-deep); }
+  a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  .site-nav { border-bottom: 1px solid var(--rule); }
+  .site-nav ul { list-style: none; margin: 0; padding: 0.9rem 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+  .site-nav a { text-decoration: none; font-weight: 700; }
+  .site-nav a[aria-current="page"] { color: var(--ink); }
+  .site-nav a:hover { text-decoration: underline; }
+
+  .opening { background: var(--wash); padding: 2.75rem 0 2rem; }
+  .opening h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 0.8rem; max-width: 24ch; }
+  .opening p { max-width: var(--measure); margin: 0 0 0.6rem; }
+  .byline { color: var(--muted); }
+  .letters { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; font-size: 0.98rem; }
+  .letters li { display: flex; align-items: center; gap: 0.5rem; }
+
+  .chip { display: inline-grid; place-items: center; flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; font-weight: 700; font-size: 0.92rem; line-height: 1; }
+  .chip.a { background: var(--scrub); color: #fff; border-radius: 6px; }
+  .chip.r { background: var(--paper); color: var(--blue-deep); border: 2px solid var(--blue); }
+  .chip.c { background: #dbe7e4; color: var(--ink); }
+  .chip.i { color: var(--muted); border: 1px dashed #9db0ad; }
+  .none { color: #b9c8c5; }
+
+  main section { padding: 2.25rem 0 0.25rem; }
+  main h2 { font-size: 1.5rem; line-height: 1.2; margin: 0 0 1rem; padding-left: 0.75rem; border-left: 4px solid var(--blue); }
+  .did { color: var(--blue); font-weight: 700; }
+  .note { color: var(--muted); font-size: 0.97rem; margin: 0.7rem 0 0; max-width: 80ch; }
+
+  .scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; }
+  thead th { background: var(--blue-deep); color: #fff; font-weight: 700; }
+
+  .matrix { min-width: 60rem; }
+  .matrix th, .matrix td { padding: 0.5rem 0.3rem; text-align: center; border-bottom: 1px solid var(--rule); }
+  .matrix thead th { font-size: 0.86rem; padding: 0.65rem 0.3rem; }
+  .matrix thead th:first-child, .matrix tbody th { text-align: left; padding-left: 1rem; }
+  .matrix tbody th { min-width: 15rem; background: var(--paper); position: sticky; left: 0; border-right: 1px solid var(--rule); }
+  .matrix thead th:first-child { position: sticky; left: 0; }
+  .matrix tbody th a { color: var(--ink); text-decoration: none; }
+  .matrix tbody th a:hover { text-decoration: underline; }
+  .matrix tbody tr:last-child th, .matrix tbody tr:last-child td { border-bottom: 0; }
+  .matrix abbr { text-decoration: none; cursor: help; }
+
+  .keys { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem 3rem; margin-top: 1.4rem; }
+  .keys h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--muted); }
+  .keylist { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 1.5rem; font-size: 0.95rem; }
+  .keylist.one { grid-template-columns: 1fr; }
+  .keylist div { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0.5rem; }
+  .keylist.one div { grid-template-columns: 1.8rem 1fr; }
+  .keylist dt { font-weight: 700; color: var(--blue-deep); }
+  .keylist dd { margin: 0; }
+
+  .why { min-width: 54rem; }
+  .why th, .why td { text-align: left; vertical-align: top; padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--rule); }
+  .why tbody th { width: 25%; font-weight: 700; }
+  .why .q { display: block; font-weight: 400; margin-top: 0.25rem; }
+  .why .who { width: 15%; font-weight: 700; color: var(--scrub-deep); }
+  .why td:last-child { width: 24%; }
+  .why tbody tr:last-child th, .why tbody tr:last-child td { border-bottom: 0; }
+  .why tr { scroll-margin-top: 1rem; }
+  .tag { font-size: 0.8rem; font-weight: 400; color: var(--blue-deep); border: 1px solid var(--blue); border-radius: 999px; padding: 0 0.5rem; margin-left: 0.3rem; white-space: nowrap; }
+
+  .due { margin: 0; padding-left: 1.4rem; max-width: 80ch; }
+  .due li { margin: 0 0 0.45rem; padding-left: 0.2rem; }
+  .due .sig { color: var(--muted); }
+
+  footer { margin-top: 2.5rem; border-top: 1px solid var(--rule); padding: 1.25rem 0 2.5rem; color: var(--muted); font-size: 0.95rem; }
+  footer p { max-width: 90ch; margin: 0 0 0.5rem; }
+
+  @media (max-width: 720px) {
+    .opening { padding: 2.25rem 0 1.75rem; }
+    .keys { grid-template-columns: 1fr; }
+    .keylist { grid-template-columns: 1fr; }
+    .matrix tbody th { min-width: 11rem; }
+  }
+  @media print {
+    @page { size: Letter landscape; margin: 0.42in 0.5in; }
+    body { font-size: 9.6pt; line-height: 1.42; }
+    .site-nav { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: none; padding: 0; }
+    .opening { padding: 0.8rem 1.2rem 0.8rem; }
+    .opening h1 { font-size: 22pt; max-width: none; margin-bottom: 0.4rem; }
+    .opening p { max-width: none; margin-bottom: 0.3rem; }
+    .letters { margin-top: 0.6rem; font-size: 9pt; }
+    .chip { width: 1.5rem; height: 1.5rem; font-size: 0.8rem; }
+    main section { padding: 1.1rem 0 0; }
+    main h2 { font-size: 14pt; margin-bottom: 0.6rem; break-after: avoid; }
+    .scroll { overflow: visible; border: 0; }
+    tr { break-inside: avoid; }
+    .matrix, .why { min-width: 0; }
+    .matrix th, .matrix td { padding: 0.26rem 0.15rem; }
+    .matrix thead th { font-size: 8.4pt; padding: 0.45rem 0.15rem; }
+    .matrix tbody th, .matrix thead th:first-child { position: static; min-width: 0; padding-left: 0.6rem; }
+    .keys { margin-top: 0.7rem; grid-template-columns: 1fr; gap: 0.6rem; }
+    .keys h3 { font-size: 9pt; margin-bottom: 0.25rem; }
+    .keylist { font-size: 8.6pt; grid-template-columns: repeat(5, 1fr); gap: 0.1rem 1rem; }
+    .keylist div { grid-template-columns: 2.9rem 1fr; gap: 0.3rem; }
+    .keylist.one { grid-template-columns: repeat(3, 1fr); }
+    .keylist.one div { grid-template-columns: 1.4rem 1fr; }
+    .note { font-size: 8.8pt; max-width: none; margin-top: 0.5rem; }
+    #reasons { break-before: page; padding-top: 0; }
+    .why { font-size: 8.3pt; line-height: 1.32; }
+    .why th, .why td { padding: 0.24rem 0.5rem; }
+    .why thead th { padding: 0.32rem 0.5rem; }
+    .why tbody th { width: 27%; }
+    .why .q { margin-top: 0.1rem; }
+    .tag { font-size: 7pt; padding: 0 0.35rem; }
+    main h2 { margin-bottom: 0.45rem; }
+    #this-quarter { padding-top: 0.6rem; }
+    .due { font-size: 8.6pt; max-width: none; }
+    .due li { margin-bottom: 0.15rem; }
+    footer { margin-top: 0.4rem; padding: 0.35rem 0 0; font-size: 7.6pt; }
+    footer p { max-width: none; margin-bottom: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site pages">
+  <div class="wrap">
+    <ul>
+      <li><a href="index.html">About us</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+      <li><a href="raci.html" aria-current="page">RACI</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="opening">
+  <div class="wrap">
+    <h1>Who signs each decision the roadmap creates</h1>
+    <p>The roadmap prepares three foundations, pilots three tools for care teams, and expands each tool only after it passes a gate. That sequence raises seven decisions that come back every quarter. Each one has a single accountable role.</p>
+    <p class="byline">Alifiya Shabbir, Governance Designer. Group 2, Week 6.</p>
+    <ul class="letters" aria-label="What the four letters mean">
+      <li><span class="chip a">A</span><span><strong>Accountable:</strong> signs the decision, one per row</span></li>
+      <li><span class="chip r">R</span><span><strong>Responsible:</strong> prepares it</span></li>
+      <li><span class="chip c">C</span><span><strong>Consulted:</strong> asked before</span></li>
+      <li><span class="chip i">I</span><span><strong>Informed:</strong> told after</span></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section id="matrix">
+    <div class="wrap">
+      <h2>The matrix</h2>
+      <div class="scroll" role="region" aria-label="RACI matrix" tabindex="0">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Recurring decision</th><th scope="col"><abbr title="Chief Executive Officer">CEO</abbr></th><th scope="col"><abbr title="EVP and Chief Operating Officer">COO</abbr></th><th scope="col"><abbr title="EVP and Chief Financial Officer">CFO</abbr></th><th scope="col"><abbr title="EVP and Chief Clinical Officer">CCO</abbr></th><th scope="col"><abbr title="SVP and Chief Information Officer">CIO</abbr></th><th scope="col"><abbr title="SVP, Care Transformation &amp; Innovation">CT&amp;I</abbr></th><th scope="col"><abbr title="SVP and Chief Nurse Executive">CNE</abbr></th><th scope="col"><abbr title="SVP and Chief Legal Officer">CLO</abbr></th><th scope="col"><abbr title="SVP and Chief Human Resources Officer">CHRO</abbr></th><th scope="col"><abbr title="Group President">Group</abbr></th><th scope="col"><abbr title="Division President">Div</abbr></th><th scope="col"><abbr title="Director of Responsible AI">RAI</abbr></th><th scope="col"><abbr title="Hospital Chief Executive Officer">H-CEO</abbr></th><th scope="col"><abbr title="Hospital Chief Nursing Officer">H-CNO</abbr></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a href="#d1"><span class="did">D1</span> Budget allocation</a></th><td><span class="chip i" title="Informed">I</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d2"><span class="did">D2</span> Architecture standards</a></th><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d3"><span class="did">D3</span> Data governance</a></th><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d4"><span class="did">D4</span> Initiative prioritization</a></th><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d5"><span class="did">D5</span> Vendor and partnership</a></th><td><span class="chip i" title="Informed">I</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d6"><span class="did">D6</span> Clinical AI release gate</a></th><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td></tr>
+            <tr><th scope="row"><a href="#d7"><span class="did">D7</span> Adoption remediation</a></th><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="chip c" title="Consulted">C</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip i" title="Informed">I</span></td><td><span class="chip a" title="Accountable">A</span></td><td><span class="none" aria-hidden="true">·</span></td><td><span class="chip r" title="Responsible">R</span></td><td><span class="chip r" title="Responsible">R</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">D1 to D5 are the five decision types the brief requires. D6 and D7 are specific to HCA's rollout. The Chief Executive Officer is Accountable for none of them on purpose: a decision that goes to the top every quarter has not been delegated.</p>
+      <div class="keys">
+        <div>
+          <h3>Roles</h3>
+          <dl class="keylist">
+        <div><dt>CEO</dt><dd>Chief Executive Officer</dd></div>
+        <div><dt>COO</dt><dd>EVP and Chief Operating Officer</dd></div>
+        <div><dt>CFO</dt><dd>EVP and Chief Financial Officer</dd></div>
+        <div><dt>CCO</dt><dd>EVP and Chief Clinical Officer</dd></div>
+        <div><dt>CIO</dt><dd>SVP and Chief Information Officer</dd></div>
+        <div><dt>CT&amp;I</dt><dd>SVP, Care Transformation &amp; Innovation</dd></div>
+        <div><dt>CNE</dt><dd>SVP and Chief Nurse Executive</dd></div>
+        <div><dt>CLO</dt><dd>SVP and Chief Legal Officer</dd></div>
+        <div><dt>CHRO</dt><dd>SVP and Chief Human Resources Officer</dd></div>
+        <div><dt>Group</dt><dd>Group President</dd></div>
+        <div><dt>Div</dt><dd>Division President</dd></div>
+        <div><dt>RAI</dt><dd>Director of Responsible AI</dd></div>
+        <div><dt>H-CEO</dt><dd>Hospital Chief Executive Officer</dd></div>
+        <div><dt>H-CNO</dt><dd>Hospital Chief Nursing Officer</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>Initiatives, named as in the roadmap (W is the pilot in Walk, R the rollout in Run)</h3>
+          <dl class="keylist one">
+        <div><dt>I1</dt><dd>Google Cloud data platform</dd></div>
+        <div><dt>I2</dt><dd>EHR integration and workflow standardization</dd></div>
+        <div><dt>I3</dt><dd>Responsible AI Program</dd></div>
+        <div><dt>I4</dt><dd>Timpani nurse scheduling</dd></div>
+        <div><dt>I5</dt><dd>Augmedix clinical documentation</dd></div>
+        <div><dt>I6</dt><dd>Nurse handoff assistant</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reasons">
+    <div class="wrap">
+      <h2>Why each role signs</h2>
+      <div class="scroll" role="region" aria-label="Reasons for each Accountable role" tabindex="0">
+        <table class="why">
+          <thead><tr><th scope="col">Decision</th><th scope="col">Accountable</th><th scope="col">Why this role</th><th scope="col">Where the roadmap creates it</th></tr></thead>
+          <tbody>
+            <tr id="d1">
+              <th scope="row"><span class="did">D1</span> Budget allocation<span class="q">Each quarter, how is the budget split between foundation work and the pilot and rollout waves?</span></th>
+              <td class="who">EVP and Chief Financial Officer</td>
+              <td>The CFO owns capital allocation and is not one of the teams asking for the money, so this role can weigh foundation work against rollout waves fairly. When a pilot misses its target, the CFO is the one who can hold the next wave&#x27;s funding back.</td>
+              <td><strong>Crawl, Walk and Run.</strong> I1, I2 and I3 compete for money with the pilots and waves of I4, I5 and I6.</td>
+            </tr>
+            <tr id="d2">
+              <th scope="row"><span class="did">D2</span> Architecture standards<span class="q">May a hospital or division deviate from the enterprise standard for data feeds or record interfaces?</span></th>
+              <td class="who">SVP and Chief Information Officer</td>
+              <td>The CIO leads the Information Technology Group, which supports every HCA site and carries the cost when sites diverge from the standard. The division asking for an exception should not approve it, and neither should the team that wants the rollout to keep moving.</td>
+              <td><strong>Crawl and Run.</strong> I1 and I2 set the standard. I2 repeats its checks at every new site, and I4-R needs a path for local exceptions.</td>
+            </tr>
+            <tr id="d3">
+              <th scope="row"><span class="did">D3</span> Data governance<span class="q">Who may use clinical and workforce data for the three tools, and is a site&#x27;s data good enough to release a feed?</span></th>
+              <td class="who">EVP and Chief Clinical Officer</td>
+              <td>The data describes patients and nurses&#x27; work, and both belong to the clinical organization this role leads: clinical quality, nursing and clinical informatics. A clinical owner also keeps the decision about who may use the data separate from the CIO, who stores it.</td>
+              <td><strong>Crawl and Walk.</strong> I1 sets access controls. I2 validates patient matching for I5 and I6. I4-W needs validated workforce feeds.</td>
+            </tr>
+            <tr id="d4">
+              <th scope="row"><span class="did">D4</span> Initiative prioritization<span class="q">When rollout capacity is short, which tool and which sites go next, and which division waits?</span></th>
+              <td class="who">EVP and Chief Operating Officer</td>
+              <td>Putting one division&#x27;s sites first makes another division wait, so the call has to sit above the divisions. The COO runs operations across all of them, and from April 2024 the three group presidents report to this role.</td>
+              <td><strong>Walk and Run.</strong> Pilot sites for I4-W, I5-W and I6-W, then the site waves of I4-R, I5-R and I6-R.</td>
+            </tr>
+            <tr id="d5">
+              <th scope="row"><span class="did">D5</span> Vendor and partnership<span class="q">Should a key external relationship be extended, changed or ended, and what may the partner do with HCA data?</span></th>
+              <td class="who">SVP and Chief Information Officer</td>
+              <td>All three partners supply technology that the Information Technology Group has to run, secure and connect, so the CIO lives with each contract after it is signed. Legal advises on data terms and the CFO on cost, but neither operates the platforms.</td>
+              <td><strong>Crawl, Walk and Run.</strong> Google Cloud for I1, MEDITECH for I2 and Augmedix for I5.</td>
+            </tr>
+            <tr id="d6">
+              <th scope="row"><span class="did">D6</span> Clinical AI release gate <span class="tag">HCA-specific</span><span class="q">Does a pilot pass its gate into Run, may a new model version be used, and does an incident pause a rollout?</span></th>
+              <td class="who">EVP and Chief Clinical Officer</td>
+              <td>The roadmap&#x27;s rule is that a time saving never overrides a clinical safety finding, so the role responsible for clinical quality signs. The team that built the tools prepares the evidence but does not approve its own work. HCA&#x27;s Responsible AI policy already requires a written go or no-go for high-risk tools.</td>
+              <td><strong>Walk to Run.</strong> I3 and every pilot-to-rollout gate: I4-W to I4-R, I5-W to I5-R and I6-W to I6-R.</td>
+            </tr>
+            <tr id="d7">
+              <th scope="row"><span class="did">D7</span> Adoption remediation <span class="tag">HCA-specific</span><span class="q">When a site misses its adoption or benefit target: more training, more time, or withdraw the tool?</span></th>
+              <td class="who">Division President</td>
+              <td>Low adoption has local causes: staffing, time for training, a unit manager who is not convinced. The Division President controls the staff time and budget where the tool is underused, which head office can advise on but cannot free up.</td>
+              <td><strong>Walk and Run.</strong> I4-W needs 80% of eligible nurse managers using the tool. A missed target triggers a review before more funding.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="this-quarter">
+    <div class="wrap">
+      <h2>Due at the Q6 review, the end of Walk</h2>
+      <ol class="due">
+        <li>Release I4 Timpani nurse scheduling from its pilot (I4-W) into its first rollout wave (I4-R), or hold it? <span class="sig">Row <a href="#d6">D6</a>, signed by the EVP and Chief Clinical Officer.</span></li>
+        <li>Fund the first rollout wave now, or keep the money on readiness work? <span class="sig">Row <a href="#d1">D1</a>, signed by the EVP and Chief Financial Officer.</span></li>
+        <li>A pilot site is below its adoption target: more training, more time, or withdraw the tool? <span class="sig">Row <a href="#d7">D7</a>, signed by the Division President.</span></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>These are proposed decision rights, built from HCA's public titles and the roadmap's gates. HCA does not publish how it assigns these decisions, so each Accountable choice is our own reasoning.</p>
+    <p>Titles are as printed in the <a href="https://s23.q4cdn.com/949900249/files/doc_downloads/investorDay2023/Speaker-Bios-Final_Investor-Day.pdf">HCA Investor Day speaker bios</a> (November 2023), HCA's fiscal 2022 annual report, its <a href="https://southfloridahospitalnews.com/2022/10/26/hca-healthcare-announces-operational-reorganization/">October 2022 reorganization</a>, its <a href="https://www.hcadam.com/api/public/content/c78ad94f348b4855bae8277ca501b826?v=c7c2d744">Responsible AI policy</a> (October 2024) and HCA hospital leadership pages. The April 2024 reporting change is from <a href="https://www.healthcaredive.com/news/hca-shakes-up-c-suite-reporting-structure/707497/">Healthcare Dive</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
