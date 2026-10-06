@@ -124,10 +124,12 @@
     .keylist.one div { grid-template-columns: 1.4rem 1fr; }
     .note { font-size: 8.8pt; max-width: none; margin-top: 0.5rem; }
     #reasons { break-before: page; padding-top: 0; }
-    .why { font-size: 8.3pt; line-height: 1.32; }
-    .why th, .why td { padding: 0.24rem 0.5rem; }
+    .why { font-size: 8.2pt; line-height: 1.3; }
+    .why th, .why td { padding: 0.2rem 0.5rem; }
     .why thead th { padding: 0.32rem 0.5rem; }
-    .why tbody th { width: 27%; }
+    .why tbody th { width: 24%; }
+    .why .who { width: 13%; }
+    .why td:last-child { width: 25%; }
     .why .q { margin-top: 0.1rem; }
     .tag { font-size: 7pt; padding: 0 0.35rem; }
     main h2 { margin-bottom: 0.45rem; }
@@ -155,7 +157,7 @@
 <header class="opening">
   <div class="wrap">
     <h1>Who signs each decision the roadmap creates</h1>
-    <p>The roadmap prepares three foundations, pilots three tools for care teams, and expands each tool only after it passes a gate. That sequence raises seven decisions that come back every quarter. Each one has a single accountable role.</p>
+    <p>The roadmap prepares three foundations, pilots three tools for care teams, and expands each tool only after it passes a gate. That sequence raises seven decisions that come back every quarter. For each one we propose a single accountable role.</p>
     <p class="byline">Alifiya Shabbir, Governance Designer. Group 2, Week 6.</p>
     <ul class="letters" aria-label="What the four letters mean">
       <li><span class="chip a">A</span><span><strong>Accountable:</strong> signs the decision, one per row</span></li>
@@ -227,12 +229,12 @@
       <h2>Why each role signs</h2>
       <div class="scroll" role="region" aria-label="Reasons for each Accountable role" tabindex="0">
         <table class="why">
-          <thead><tr><th scope="col">Decision</th><th scope="col">Accountable</th><th scope="col">Why this role</th><th scope="col">Where the roadmap creates it</th></tr></thead>
+          <thead><tr><th scope="col">Decision</th><th scope="col">Accountable</th><th scope="col">Why this role, in our proposed model</th><th scope="col">Where the roadmap creates it</th></tr></thead>
           <tbody>
             <tr id="d1">
               <th scope="row"><span class="did">D1</span> Budget allocation<span class="q">Each quarter, how is the budget split between foundation work and the pilot and rollout waves?</span></th>
               <td class="who">EVP and Chief Financial Officer</td>
-              <td>The CFO owns capital allocation and is not one of the teams asking for the money, so this role can weigh foundation work against rollout waves fairly. When a pilot misses its target, the CFO is the one who can hold the next wave&#x27;s funding back.</td>
+              <td>In our proposed model the CFO signs because this role is responsible for capital allocation and is not one of the teams asking for the money, so it can weigh foundation work against rollout waves fairly. When a pilot misses its target, the CFO is the one who can hold the next wave&#x27;s funding back.</td>
               <td><strong>Crawl, Walk and Run.</strong> I1, I2 and I3 compete for money with the pilots and waves of I4, I5 and I6.</td>
             </tr>
             <tr id="d2">
@@ -242,7 +244,7 @@
               <td><strong>Crawl and Run.</strong> I1 and I2 set the standard. I2 repeats its checks at every new site, and I4-R needs a path for local exceptions.</td>
             </tr>
             <tr id="d3">
-              <th scope="row"><span class="did">D3</span> Data governance<span class="q">Who may use clinical and workforce data for the three tools, and is a site&#x27;s data good enough to release a feed?</span></th>
+              <th scope="row"><span class="did">D3</span> Data governance<span class="q">What is the policy on who may use clinical and workforce data for the three tools, partners included, and is a site&#x27;s data good enough to release a feed?</span></th>
               <td class="who">EVP and Chief Clinical Officer</td>
               <td>The data describes patients and nurses&#x27; work, and both belong to the clinical organization this role leads: clinical quality, nursing and clinical informatics. A clinical owner also keeps the decision about who may use the data separate from the CIO, who stores it.</td>
               <td><strong>Crawl and Walk.</strong> I1 sets access controls. I2 validates patient matching for I5 and I6. I4-W needs validated workforce feeds.</td>
@@ -254,21 +256,21 @@
               <td><strong>Walk and Run.</strong> Pilot sites for I4-W, I5-W and I6-W, then the site waves of I4-R, I5-R and I6-R.</td>
             </tr>
             <tr id="d5">
-              <th scope="row"><span class="did">D5</span> Vendor and partnership<span class="q">Should a key external relationship be extended, changed or ended, and what may the partner do with HCA data?</span></th>
+              <th scope="row"><span class="did">D5</span> Vendor and partnership<span class="q">Should a key external relationship be extended, changed or ended, on terms that stay inside the data-access policy set in D3?</span></th>
               <td class="who">SVP and Chief Information Officer</td>
-              <td>All three partners supply technology that the Information Technology Group has to run, secure and connect, so the CIO lives with each contract after it is signed. Legal advises on data terms and the CFO on cost, but neither operates the platforms.</td>
+              <td>All three partners supply technology that the Information Technology Group has to run, secure and connect, so the CIO lives with each contract after it is signed. Legal advises on contract terms and the CFO on cost, but neither operates the platforms. What a partner may do with HCA data is set in D3, not here.</td>
               <td><strong>Crawl, Walk and Run.</strong> Google Cloud for I1, MEDITECH for I2 and Augmedix for I5.</td>
             </tr>
             <tr id="d6">
-              <th scope="row"><span class="did">D6</span> Clinical AI release gate <span class="tag">HCA-specific</span><span class="q">Does a pilot pass its gate into Run, may a new model version be used, and does an incident pause a rollout?</span></th>
+              <th scope="row"><span class="did">D6</span> Clinical AI release gate <span class="tag">HCA-specific</span><span class="q">Does a pilot pass its gate into Run, may a new model version be used, and may a deployment paused after an incident restart?</span></th>
               <td class="who">EVP and Chief Clinical Officer</td>
               <td>The roadmap&#x27;s rule is that a time saving never overrides a clinical safety finding, so the role responsible for clinical quality signs. The team that built the tools prepares the evidence but does not approve its own work. HCA&#x27;s Responsible AI policy already requires a written go or no-go for high-risk tools.</td>
-              <td><strong>Walk to Run.</strong> I3 and every pilot-to-rollout gate: I4-W to I4-R, I5-W to I5-R and I6-W to I6-R.</td>
+              <td><strong>Walk to Run.</strong> I3 and every pilot-to-rollout gate: I4-W to I4-R, I5-W to I5-R and I6-W to I6-R. A critical safety or privacy incident pauses the affected deployment at once; this role reviews it and approves the restart.</td>
             </tr>
             <tr id="d7">
-              <th scope="row"><span class="did">D7</span> Adoption remediation <span class="tag">HCA-specific</span><span class="q">When a site misses its adoption or benefit target: more training, more time, or withdraw the tool?</span></th>
+              <th scope="row"><span class="did">D7</span> Adoption remediation <span class="tag">HCA-specific</span><span class="q">If a site falls below its adoption or benefit target: more training, more time, or withdraw the tool?</span></th>
               <td class="who">Division President</td>
-              <td>Low adoption has local causes: staffing, time for training, a unit manager who is not convinced. The Division President controls the staff time and budget where the tool is underused, which head office can advise on but cannot free up.</td>
+              <td>Low adoption has local causes: staffing, time for training, a unit manager who is not convinced. In our proposed model the Division President signs because this role is closest to the staff time and budget where the tool is underused, which head office can advise on but cannot free up.</td>
               <td><strong>Walk and Run.</strong> I4-W needs 80% of eligible nurse managers using the tool. A missed target triggers a review before more funding.</td>
             </tr>
           </tbody>
@@ -283,7 +285,7 @@
       <ol class="due">
         <li>Release I4 Timpani nurse scheduling from its pilot (I4-W) into its first rollout wave (I4-R), or hold it? <span class="sig">Row <a href="#d6">D6</a>, signed by the EVP and Chief Clinical Officer.</span></li>
         <li>Fund the first rollout wave now, or keep the money on readiness work? <span class="sig">Row <a href="#d1">D1</a>, signed by the EVP and Chief Financial Officer.</span></li>
-        <li>A pilot site is below its adoption target: more training, more time, or withdraw the tool? <span class="sig">Row <a href="#d7">D7</a>, signed by the Division President.</span></li>
+        <li>If a pilot site falls below its adoption target: more training, more time, or withdraw the tool? <span class="sig">Row <a href="#d7">D7</a>, signed by the Division President.</span></li>
       </ol>
     </div>
   </section>
